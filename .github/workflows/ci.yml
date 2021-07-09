@@ -6,6 +6,7 @@ jobs:
   molecule-test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         distro:
           - ubuntu:20.04
