@@ -1,0 +1,13 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: ${MOLECULE_DISTRO:-docker.io/pycontribs/centos:8}
+    privileged: true
+provisioner:
+  name: ansible
+verifier:
+  name: ansible

@@ -1,0 +1,5 @@
+---
+# tasks file for kubernetes
+
+- name: Run script
+  script: "{{ role_path }}/files/hello.sh"

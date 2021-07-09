@@ -1,0 +1,17 @@
+---
+# tasks file for docker
+
+- setup:
+
+- include_tasks: centos.yml
+  when: ansible_distribution == "CentOS"
+
+- include_tasks: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- name: Start docker and enable docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
