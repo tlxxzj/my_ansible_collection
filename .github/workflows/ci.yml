@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Check out the codebase
         uses: actions/checkout@v2
-        with:
-          path: my_ansible_collection
 
       - name: Set up Python 3
         uses: actions/setup-python@v2
@@ -28,8 +26,9 @@ jobs:
         run: pip3 install ansible molecule[docker] docker
       
       - name: Test with molecule
-        run: pwd && ls -alh
+        run: molecule test
         env:
           PY_COLORS: 1
           ANSIBLE_FORCE_COLOR: 1
           MOLECULE_DISTRO: ${{ matrix.distro }}
+        working-directory: ./roles/${{ matrix.role }}
